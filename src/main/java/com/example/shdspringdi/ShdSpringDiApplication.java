@@ -1,6 +1,9 @@
 package com.example.shdspringdi;
 
+import com.example.shdspringdi.controllers.ConstructorInjectedController;
 import com.example.shdspringdi.controllers.MyController;
+import com.example.shdspringdi.controllers.PropertyInjectedController;
+import com.example.shdspringdi.controllers.SetterInjectedController;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ApplicationContext;
@@ -37,6 +40,27 @@ public class ShdSpringDiApplication {
 		//calling controller class object (returned by ApplicationContext) method(s)
 		String greeting = myController.sayHello();
 		System.out.println(greeting);
+
+		//--------------------- Spring DI - using Property/Field --------------------------
+		System.out.println("--------- DI Using Property ---------");
+
+		PropertyInjectedController propertyInjectedController = (PropertyInjectedController) aCtx.getBean("propertyInjectedController");
+
+		System.out.println(propertyInjectedController.getGreeting());
+
+		//--------------------- Spring DI - using Setter --------------------------
+		System.out.println("\n--------- DI Using Setter ---------");
+
+		SetterInjectedController setterInjectedController = (SetterInjectedController) aCtx.getBean("setterInjectedController");
+
+		System.out.println(setterInjectedController.getGreeting());
+
+		//--------------------- Spring DI - using Constructor --------------------------
+		System.out.println("\n--------- DI Using Constructor ---------");
+
+		ConstructorInjectedController constructorInjectedController = (ConstructorInjectedController) aCtx.getBean("constructorInjectedController");
+
+		System.out.println(constructorInjectedController.getGreeting());
 	}
 
 }
