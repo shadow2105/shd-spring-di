@@ -36,13 +36,13 @@ public class ShdSpringDiApplication {
 		//getBean() returns an object of type java.lang.Object and hence needs to be type-casted to an object controller class
 		//getBean() takes a string argument to specify the controller object name (stored as controller class name in camelcase)
 
-
+		//--------------------- Spring DI - using Constructor & specifying a Primary Bean --------------------------
+		System.out.println("--------- DI Using Primary Bean ---------");
 		//calling controller class object (returned by ApplicationContext) method(s)
-		String greeting = myController.sayHello();
-		System.out.println(greeting);
+		System.out.println(myController.sayHello());
 
 		//--------------------- Spring DI - using Property/Field --------------------------
-		System.out.println("--------- DI Using Property ---------");
+		System.out.println("\n--------- DI Using Property ---------");
 
 		PropertyInjectedController propertyInjectedController = (PropertyInjectedController) aCtx.getBean("propertyInjectedController");
 
