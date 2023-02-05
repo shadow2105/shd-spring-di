@@ -65,6 +65,12 @@ public class ShdSpringDiApplication {
 		I18nController i18nController = (I18nController) aCtx.getBean("i18nController");
 
 		System.out.println(i18nController.sayHello());
+
+		//--------------------- Spring DI - Assignment --------------------------
+		PetController petController = aCtx.getBean("petController", PetController.class);
+
+		System.out.println("\n-------- The Best Pet is --------");
+		System.out.println(petController.whichPetIsTheBest());
 	}
 
 }
