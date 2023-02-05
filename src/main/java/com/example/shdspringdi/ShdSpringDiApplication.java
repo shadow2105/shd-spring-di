@@ -26,7 +26,7 @@ public class ShdSpringDiApplication {
 		to be used in the dependent class in our code, Frameworks utilizing Inversion of Control (a software engineering principle)
 		are responsible for creating, providing and managing the objects of dependency classes or libraries to the dependent class.
 
-		Dependency injection (a software design pattern based on IoC) utilizes the control being inverted to set
+		Dependency injection (a software design pattern) utilizes the control being inverted to set
 		a dependent class object's dependencies (objects of other classes or libraries) at runtime (provided by Framework,
 		like Spring ApplicationContext) rather than creating and providing them manually while writing our code.
 		 */

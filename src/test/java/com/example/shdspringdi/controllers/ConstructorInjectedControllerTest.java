@@ -1,12 +1,8 @@
 package com.example.shdspringdi.controllers;
 
-import com.example.shdspringdi.services.GreetingServiceImpl;
+import com.example.shdspringdi.services.ConstructorGreetingService;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-
-import javax.sound.midi.SysexMessage;
-
-import static org.junit.jupiter.api.Assertions.*;
 
 class ConstructorInjectedControllerTest {
 
@@ -14,7 +10,7 @@ class ConstructorInjectedControllerTest {
 
     @BeforeEach
     void setUp() {
-        controller = new ConstructorInjectedController(new GreetingServiceImpl());
+        controller = new ConstructorInjectedController(new ConstructorGreetingService());
         //mimicking Spring framework by manually creating the objects
     }
 
