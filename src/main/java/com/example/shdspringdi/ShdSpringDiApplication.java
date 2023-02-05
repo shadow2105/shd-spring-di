@@ -1,9 +1,6 @@
 package com.example.shdspringdi;
 
-import com.example.shdspringdi.controllers.ConstructorInjectedController;
-import com.example.shdspringdi.controllers.MyController;
-import com.example.shdspringdi.controllers.PropertyInjectedController;
-import com.example.shdspringdi.controllers.SetterInjectedController;
+import com.example.shdspringdi.controllers.*;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ApplicationContext;
@@ -61,6 +58,13 @@ public class ShdSpringDiApplication {
 		ConstructorInjectedController constructorInjectedController = (ConstructorInjectedController) aCtx.getBean("constructorInjectedController");
 
 		System.out.println(constructorInjectedController.getGreeting());
+
+		//--------------------- Spring DI - using Constructor & using Profiles --------------------------
+		System.out.println("\n--------- Using Profiles ---------");
+
+		I18nController i18nController = (I18nController) aCtx.getBean("i18nController");
+
+		System.out.println(i18nController.sayHello());
 	}
 
 }
