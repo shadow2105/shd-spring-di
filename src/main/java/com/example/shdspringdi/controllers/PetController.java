@@ -1,6 +1,6 @@
 package com.example.shdspringdi.controllers;
 
-import com.example.shdspringdi.services.PetService;
+import com.example.pets.PetService;
 import org.springframework.stereotype.Controller;
 
 @Controller
