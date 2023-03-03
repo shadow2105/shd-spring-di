@@ -1,6 +1,8 @@
 package com.example.shdspringdi;
 
 import com.example.shdspringdi.controllers.*;
+import com.example.shdspringdi.services.PrototypeBean;
+import com.example.shdspringdi.services.SingletonBean;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ApplicationContext;
@@ -73,6 +75,22 @@ public class ShdSpringDiApplication {
 
 		System.out.println("\n-------- The Best Pet is --------");
 		System.out.println(petController.whichPetIsTheBest());
+
+		//--------------------- Spring Bean Scope (Default) - Singleton --------------------------
+		System.out.println("\n-------- Singleton Bean Scope --------");
+		SingletonBean singletonBean1 = aCtx.getBean(SingletonBean.class);
+		System.out.println(singletonBean1.getScope());
+
+		SingletonBean singletonBean2 = aCtx.getBean(SingletonBean.class);
+		System.out.println(singletonBean2.getScope());
+
+		//--------------------- Spring Bean Scope - Prototype --------------------------
+		System.out.println("\n-------- Prototype Bean Scope --------");
+		PrototypeBean prototypeBean1 = aCtx.getBean(PrototypeBean.class);
+		System.out.println(prototypeBean1.getScope());
+
+		PrototypeBean prototypeBean2 = aCtx.getBean(PrototypeBean.class);
+		System.out.println(prototypeBean2.getScope());
 	}
 
 }
