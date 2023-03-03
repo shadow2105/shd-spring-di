@@ -7,11 +7,9 @@ import com.example.pets.PetServiceFactory;
 import com.example.shdspringdi.repositories.EnglishGreetingRepository;
 import com.example.shdspringdi.repositories.EnglishGreetingRepositoryImpl;
 import com.example.shdspringdi.services.*;
-import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.Configuration;
-import org.springframework.context.annotation.Primary;
-import org.springframework.context.annotation.Profile;
+import org.springframework.context.annotation.*;
 
+@ImportResource("classpath:service-config.xml")     //or annotate the Application class (ShdSpringDiApplication)
 @Configuration
 public class ServiceConfig {
     //Bean generated in the Spring Context has the same as the method
@@ -37,11 +35,6 @@ public class ServiceConfig {
     @Bean
     PrimaryGreetingService primaryGreetingService() {
         return new PrimaryGreetingService();
-    }
-
-    @Bean
-    ConstructorGreetingService constructorGreetingService() {
-        return new ConstructorGreetingService();
     }
 
     @Bean
