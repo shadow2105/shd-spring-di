@@ -1,5 +1,7 @@
 package com.example.shdspringdi.config;
 
+import com.example.shdspringdi.repositories.EnglishGreetingRepository;
+import com.example.shdspringdi.repositories.EnglishGreetingRepositoryImpl;
 import com.example.shdspringdi.services.*;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -31,11 +33,16 @@ public class GreetingServiceConfig {
         return new SetterGreetingService();
     }
 
+    @Bean
+    EnglishGreetingRepository englishGreetingRepository() {
+        return new EnglishGreetingRepositoryImpl();
+    }
+
     //Beans with same name mapped to different profiles
     @Profile({"EN", "default"})
     @Bean
-    I18nEnglishGreetingService i18nService() {
-        return new I18nEnglishGreetingService();
+    I18nEnglishGreetingService i18nService(EnglishGreetingRepository englishGreetingRepository) {
+        return new I18nEnglishGreetingService(englishGreetingRepository);
     }
 
 
