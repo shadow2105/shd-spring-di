@@ -4,15 +4,28 @@ import com.example.pets.CatPetService;
 import com.example.pets.DogPetService;
 import com.example.pets.PetService;
 import com.example.pets.PetServiceFactory;
+import com.example.shdspringdi.datasource.FakeDataSource;
 import com.example.shdspringdi.repositories.EnglishGreetingRepository;
 import com.example.shdspringdi.repositories.EnglishGreetingRepositoryImpl;
 import com.example.shdspringdi.services.*;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.*;
 
+@PropertySource("classpath:datasource.properties")
 @ImportResource("classpath:service-config.xml")     //or annotate the Application class (ShdSpringDiApplication)
 @Configuration
 public class ServiceConfig {
     //Bean generated in the Spring Context has the same as the method
+
+    @Bean
+    FakeDataSource fakeDataSource(@Value("${com.username}")String username, @Value("${com.password}")String password, @Value("${com.jdbcurl}")String jdbcurl) {
+        FakeDataSource fakeDataSource = new FakeDataSource();
+        fakeDataSource.setUsername(username);
+        fakeDataSource.setPassword(password);
+        fakeDataSource.setJdbcurl(jdbcurl);
+
+        return fakeDataSource;
+    }
 
     @Bean
     PetServiceFactory petServiceFactory() {

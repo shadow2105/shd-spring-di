@@ -1,6 +1,7 @@
 package com.example.shdspringdi;
 
 import com.example.shdspringdi.controllers.*;
+import com.example.shdspringdi.datasource.FakeDataSource;
 import com.example.shdspringdi.services.PrototypeBean;
 import com.example.shdspringdi.services.SingletonBean;
 import org.springframework.boot.SpringApplication;
@@ -91,6 +92,15 @@ public class ShdSpringDiApplication {
 
 		PrototypeBean prototypeBean2 = aCtx.getBean(PrototypeBean.class);
 		System.out.println(prototypeBean2.getScope());
+
+		//--------------------- Spring External Properties --------------------------
+		System.out.println("\n-------- Spring External Properties --------");
+		FakeDataSource fakeDataSource = aCtx.getBean(FakeDataSource.class);
+
+		System.out.println(fakeDataSource.getUsername());
+		System.out.println(fakeDataSource.getPassword());
+		System.out.println(fakeDataSource.getJdbcurl());
+
 	}
 
 }
