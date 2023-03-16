@@ -11,7 +11,7 @@ import com.example.shdspringdi.services.*;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.*;
 
-@PropertySource("classpath:datasource.properties")
+
 @ImportResource("classpath:service-config.xml")     //or annotate the Application class (ShdSpringDiApplication)
 @Configuration
 public class ServiceConfig {
