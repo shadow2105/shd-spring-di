@@ -1,0 +1,9 @@
+spring:
+  profiles:
+    active:
+      - ES
+      - cat
+com:
+  username: "superuser_YAML"
+  password: "DBpasswd_YAML"
+  jdbcurl: "someDBserverURL_YAML"
