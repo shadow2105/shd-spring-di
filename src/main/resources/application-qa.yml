@@ -1,4 +1,0 @@
-com:
-  username: "QADBuser_YAML"
-  password: "QADBpasswd_YAML"
-  jdbcurl: "QADBserverURL_YAML"

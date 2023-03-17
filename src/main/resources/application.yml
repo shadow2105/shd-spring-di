@@ -1,10 +1,41 @@
+---
 spring:
   profiles:
     active:
       - ES
       - cat
-      - qa
+      - prod
 com:
   username: "superuser_YAML"
   password: "DBpasswd_YAML"
   jdbcurl: "someDBserverURL_YAML"
+
+---
+spring:
+  config:
+    activate:
+      on-profile: prod
+com:
+  username: "ProdDBuser_YAML"
+  password: "ProdDBpasswd_YAML"
+  jdbcurl: "ProdDBserverURL_YAML"
+
+---
+spring:
+  config:
+    activate:
+      on-profile: dev
+com:
+  username: "DevDBuser_YAML"
+  password: "DevDBpasswd_YAML"
+  jdbcurl: "DevDBserverURL_YAML"
+
+---
+spring:
+  config:
+    activate:
+      on-profile: qa
+com:
+  username: "QADBuser_YAML"
+  password: "QADBpasswd_YAML"
+  jdbcurl: "QADBserverURL_YAML"
