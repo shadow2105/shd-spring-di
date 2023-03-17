@@ -3,6 +3,7 @@ spring:
     active:
       - ES
       - cat
+      - qa
 com:
   username: "superuser_YAML"
   password: "DBpasswd_YAML"
