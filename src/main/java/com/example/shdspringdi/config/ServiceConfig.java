@@ -20,11 +20,11 @@ public class ServiceConfig {
     //Bean generated in the Spring Context has the same as the method
 
     @Bean
-    FakeDataSource fakeDataSource(ComConfig comConfig) {
+    FakeDataSource fakeDataSource(ComConstructorConfig comConstructorConfig) {
         FakeDataSource fakeDataSource = new FakeDataSource();
-        fakeDataSource.setUsername(comConfig.getUsername());
-        fakeDataSource.setPassword(comConfig.getPassword());
-        fakeDataSource.setJdbcurl(comConfig.getJdbcurl());
+        fakeDataSource.setUsername(comConstructorConfig.getUsername());
+        fakeDataSource.setPassword(comConstructorConfig.getPassword());
+        fakeDataSource.setJdbcurl(comConstructorConfig.getJdbcurl());
 
         return fakeDataSource;
     }
