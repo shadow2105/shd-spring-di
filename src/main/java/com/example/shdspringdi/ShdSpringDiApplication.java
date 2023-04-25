@@ -1,5 +1,6 @@
 package com.example.shdspringdi;
 
+import com.example.shdspringdi.config.ComConfig;
 import com.example.shdspringdi.controllers.*;
 import com.example.shdspringdi.datasource.FakeDataSource;
 import com.example.shdspringdi.services.PrototypeBean;
@@ -100,6 +101,14 @@ public class ShdSpringDiApplication {
 		System.out.println(fakeDataSource.getUsername());
 		System.out.println(fakeDataSource.getPassword());
 		System.out.println(fakeDataSource.getJdbcurl());
+
+        //--------------------- Spring External Properties --------------------------
+        System.out.println("\n-------- Configuration Properties Binding --------");
+        ComConfig comConfig = aCtx.getBean(ComConfig.class);
+
+        System.out.println(comConfig.getUsername());
+        System.out.println(comConfig.getPassword());
+        System.out.println(comConfig.getJdbcurl());
 
 	}
 
