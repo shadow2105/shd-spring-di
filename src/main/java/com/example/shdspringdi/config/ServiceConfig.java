@@ -9,9 +9,11 @@ import com.example.shdspringdi.repositories.EnglishGreetingRepository;
 import com.example.shdspringdi.repositories.EnglishGreetingRepositoryImpl;
 import com.example.shdspringdi.services.*;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.context.annotation.*;
 
 
+@EnableConfigurationProperties(ComConstructorConfig.class)
 @ImportResource("classpath:service-config.xml")     //or annotate the Application class (ShdSpringDiApplication)
 @Configuration
 public class ServiceConfig {
